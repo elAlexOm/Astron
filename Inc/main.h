@@ -81,6 +81,9 @@ void Error_Handler(void);
 #define USB_RST_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
+#define USB_PHY_RESET_ON()                { USB_RST_GPIO_Port->BSRR = USB_RST_Pin; }
+#define USB_PHY_RESET_OFF()               { USB_RST_GPIO_Port->BSRR = USB_RST_Pin << 16;; }
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

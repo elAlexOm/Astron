@@ -23,7 +23,7 @@
 #include "adc.h"
 #include "dcmi.h"
 #include "quadspi.h"
-#include "usb_otg.h"
+#include "usb_device.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -93,7 +93,7 @@ int main(void)
   MX_ADC1_Init();
   MX_DCMI_Init();
   MX_QUADSPI_Init();
-  MX_USB_OTG_HS_PCD_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -102,6 +102,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+//    HAL_Delay( 1000 );
+// 
+//    MX_USB_DEVICE_Init();
+    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -155,6 +159,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_1);
 }
 
 /* USER CODE BEGIN 4 */
